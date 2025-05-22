@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GODBench</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="static/css/index.css" />
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-2 publication-title is-bold">GODBench</h1>
+        <h2 class="subtitle is-3 publication-subtitle", style="margin-bottom: 20px;">
+            A Benchmark for Multimodal Large Language Models<br>in Video Comment Art
+        </h2>
+        
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">Yiming Lei<sup style="color:#FF69B4">†</sup>,</span>
+          <span class="author-block">Chenkai Zhang<sup style="color:#FF69B4">†</sup>,</span>
+          <span class="author-block">Zeming Liu<sup style="color:#1E90FF">*</sup></span>,
+          <span class="author-block">Haitao Leng<sup style="color:#6A5ACD">&spades;</sup></span>,
+          <span class="author-block">Shaoguo Liu</span>,<br>
+          <span class="author-block">Tingting Gao</span>,
+          <span class="author-block">Qingjie Liu<sup style="color:#1E90FF">*</sup></span>,
+          <span class="author-block">Yunhong Wang</span><br>
+
+          <span class="author-block">ACL, 2025</span><br>
+          <span class="eql-cntrb"><small><sup style="color:#FF69B4">†</sup>Equal Contribution.</small></span>
+          <span class="eql-cntrb"><small><sup style="color:#6A5ACD">&spades;</sup>Project Leader.</small></span>
+          <span class="eql-cntrb"><small><sup style="color:#1E90FF">*</sup>Corresponding Authors.</small></span>
+        </div>
+
+        <!-- Links/buttons -->
+        <div class="buttons is-centered mt-4">
+          <a href="https://arxiv.org/pdf/2505.11436" target="_blank" class="button is-dark is-rounded">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>PDF</span>
+          </a>
+          <a href="https://arxiv.org/abs/2505.11436" target="_blank" class="button is-dark is-rounded">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
+          <a href="https://github.com/stan-lei/GODBench-ACL2025" target="_blank" class="button is-dark is-rounded">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+          <a href="index.html" class="button is-light is-rounded ml-4">← Back to Main Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container" style="margin-bottom: 2vh;">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+              Video Comment Art enhances user engagement by providing creative content that conveys humor, satire, or emotional resonance, requiring a nuanced and comprehensive grasp of cultural and contextual subtleties. Although Multimodal Large Language Models (MLLMs) and Chain-of-Thought (CoT) have demonstrated strong reasoning abilities in STEM tasks (e.g. mathematics and coding), they still struggle to generate creative expressions such as resonant jokes and insightful satire. Moreover, existing benchmarks are constrained by their limited modalities and insufficient categories, hindering the exploration of comprehensive creativity in video-based Comment Art creation. To address these limitations, we introduce GODBench, a novel benchmark that integrates video and text modalities to systematically evaluate MLLMs' abilities to compose Comment Art. Furthermore, inspired by the propagation patterns of waves in physics, we propose Ripple of Thought (RoT), a multi-step reasoning framework designed to enhance the creativity of MLLMs. Extensive experiments reveal that existing MLLMs and CoT methods still face significant challenges in understanding and generating creative video comments. In contrast, RoT provides an effective approach to improve creative composing, highlighting its potential to drive meaningful advancements in MLLM-based creativity. GODBench is publicly available at <a href="https://github.com/stan-lei/GODBench-ACL2025" target="_blank">our GitHub repository</a>.
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+      <div class="container">
+        <div class="content has-text-centered">
+          <div class="content has-text-centered">
+            <img src="static/images/godbench/ROT.png" alt="Overview of Method" style="max-width: 85%;"/>
+            <p class="caption"
+                style="text-align: center; margin-top: 20px; width: 85%; margin-left: auto; margin-right: auto;">
+                <strong>Overview of RoT framework</strong>: Inspired by the diffusion of ripples in physics, human creative thinking is abstracted into five propagation components. These components are mapped onto the RoT reasoning process in MLLMs.
+            </p>
+          </div>
+        </div>
+    </div>
+    
+  </section>
+
+<section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista_other">
+      <span class="mathvista_other" style="vertical-align: middle">Benchmark</span>
+    </h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <!-- Data Statistics -->
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <div class="content has-text-centered">
+            <h2 class="title is-3">Statistics</h2>
+              <!-- 图片容器 -->
+              <div class="content has-text-centered"
+                   style="display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap;">
+
+                <!-- 左侧图片 -->
+                <div class="image-item" style="flex: 1; min-width: 300px; display: flex;">
+                  <img src="static/images/godbench/video_4.png"
+                       alt="data_category"
+                       style="width: 120%; height: auto; object-fit: contain; align-self: stretch;" />
+                </div>
+
+                <!-- 右侧图片 -->
+                <div class="image-item" style="flex: 1; min-width: 300px; display: flex;">
+                  <img src="static/images/godbench/intro.png"
+                       alt="task_dimension"
+                       style="width: 120%; height: auto; object-fit: contain; align-self: stretch;" />
+                </div>
+              </div>
+
+              <!-- 图题说明 -->
+              <p class="caption"
+                 style="text-align: center; margin-top: 20px; width: 85%; margin-left: auto; margin-right: auto;">
+                <strong>Composition and task distribution of GODBench</strong>: (Left) The dataset includes two main video categories—series videos and thematic videos—spanning 11 common themes such as Urban Life, Romance, Fantasy, and Food. Each series is annotated with its total number of videos. (Right) Task distribution is shown with detailed sample counts for each task defined in GODBench.
+              </p>
+          </div>
+
+          <div class="content has-text-centered">
+              <!-- 图片容器 -->
+              <div class="content has-text-centered">
+                <img src="static/images/godbench/label.png" alt="Overview of Method" style="max-width: 85%;"/>
+                <!-- 图题说明 -->
+                <p class="caption"
+                   style="text-align: center; margin-top: 20px; width: 85%; margin-left: auto; margin-right: auto;">
+                  <strong>Comment Art taxonomy and example tasks</strong>: The figure defines five dimensions of Comment Art and presents an example from the “Imaginary Completion” category with associated tasks.
+                </p>
+              </div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Comparison -->
+    <div class="container" style="margin-top: 25px;">
+      <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <h2 class="title is-3">Dataset Comparison</h2>
+              <div class="content has-text-centered">
+                <!-- Image container: flex layout for side-by-side alignment -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                  <div style="flex: 1; min-width: 300px;">
+                    <img src="static/images/godbench/comparison.png" alt="comparison" style="max-width: 75%; height: auto;" />
+                  </div>
+                </div>
+                <!-- Caption -->
+                <p style="text-align: center; margin-top: 20px; width: 85%; margin-left: auto; margin-right: auto;">
+                  <strong>GODBench vs. existing benchmarks</strong>.
+                  Comparison includes video types, duration, context–response pairs with review type, coverage of five Comment Art dimensions (RT, DA, WT, IV, ER), and task types (SEL, RNK, CLS, EXP, CRE). 
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Examples -->
+    <div class="container" style="margin-top: 40px;">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <div class="content has-text-centered">
+            <!-- Carousel -->
+            <h2 class="title is-3">Examples of GODBench</h2>
+            <div id="results-carousel" class="carousel results-carousel" style="display: flex; flex-direction: column; gap: 40px; justify-content: center; ">
+              <!-- Total: 25 examples -->
+              <!-- Example 1 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_1.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 2 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_2.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 3 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_3.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 4 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_4.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 5 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_5.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 6 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_6.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 7 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_7.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 8 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_8.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 9 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_9.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 10 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_10.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 11 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_11.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 12 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_12.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 13 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_13.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 14 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_14.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 15 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_15.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 16 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_16.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 17 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_17.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 18 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_18.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 19 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_19.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 20 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_20.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 21 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_21.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 22 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_22.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 23 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_23.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 24 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_24.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+
+              <!-- Example 25 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_25.png" alt="GODBench Example" style="max-width: 80%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+            </div>
+            <p style="text-align: center; margin-top: 10px; width: 85%; margin-left: auto; margin-right: auto;">
+              <strong>Examples from GODBench</strong>: We select one example for each of the 25 subcategories in GODBench, and all the samples are carefully annotated by human experts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista_other">
+      <span class="mathvista_other" style="vertical-align: middle">Evaluation</span>
+    </h1>
+    </div>
+  </section>
+  <section class="section">
+    <!-- Examples -->
+    <div class="container" style="margin-top: 20px;">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <div class="content has-text-centered">
+            <img src="static/images/godbench/main_result.png" alt="Seriesbench Example" style="max-width: 95%; width: auto; height: auto; margin: 0 auto;" />
+            <p style="text-align: center; margin-top: 20px; width: 85%; margin-left: auto; margin-right: auto;">
+              <strong>Performance of MLLMs on discriminative tasks</strong>: “Size” indicates the LLM size. Evaluation is based on Exact Match Accuracy (EMA), with results reported in percentage (%). † denotes models fine-tuned using LoRA. Top three scores are marked in purple, orange, and gray.
+            </p>
+          </div>
+          <!-- 图片容器 -->
+          <div class="content has-text-centered"
+               style="display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap;">
+            <!-- 左侧图片 -->
+            <div class="image-item" style="flex: 1; min-width: 300px; display: flex;">
+              <img src="static/images/godbench/generation.png"
+                   alt="data_category"
+                   style="width: 120%; height: auto; object-fit: contain; align-self: stretch;" />
+            </div>
+
+            <!-- 右侧图片 -->
+            <div class="image-item" style="flex: 1; min-width: 300px; display: flex;">
+              <img src="static/images/godbench/human.png"
+                   alt="task_dimension"
+                   style="width: 120%; height: auto; object-fit: contain; align-self: stretch;" />
+            </div>
+          </div>
+          <p style="text-align: center; margin-top: 20px; width: 85%; margin-left: auto; margin-right: auto;">
+            <strong>Performance of MLLMs on comment generation</strong>: Results are reported in percentage (%). “S<sub>GPT-4o</sub>” indicates quality scores evaluated by GPT-4o. A user study with voting (%) compares outputs from different models and improved methods.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista_other">
+      <span class="mathvista_other" style="vertical-align: middle">Case Study</span>
+    </h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <!-- Examples -->
+    <div class="container" style="margin-top: 20px;">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <div class="content has-text-centered">
+            <!-- Carousel -->
+            <div id="results-carousel" class="carousel results-carousel" style="display: flex; flex-direction: column; gap: 40px; justify-content: center; ">
+
+              <!-- Example 1 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_26.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 2 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_27.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 3 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_28.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 4 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_29.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 5 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/case_30.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 1 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/creation_1.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 2 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/creation_2.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 3 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/creation_3.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+              <!-- Example 4 -->
+              <div class="carousel-item">
+                <img src="static/images/godbench/cases/creation_4.png" alt="Seriesbench Example" style="max-width: 75%; width: auto; height: auto; margin: 0 auto;" />
+              </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; width: 85%; margin-left: auto; margin-right: auto;">
+              <strong>Case Study</strong>: We select 9 examples from GODBench to illustrate the performance of MLLMs on discriminative tasks and comment generation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Embedded Video (optional) -->
+  <!-- <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h2 class="title is-4">Video Presentation</h2>
+        <div class="publication-video">
+          <iframe width="720" height="420" src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0"
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Poster (optional) -->
+  <!-- <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Poster</h2>
+      <iframe src="static/pdfs/kwai-paper1-poster.pdf" width="100%" height="550px"></iframe>
+    </div>
+  </section> -->
+
+  <!-- BibTex -->
+  <section class="section">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-4">BibTeX</h2>
+      <pre><code>@misc{godbench2025,
+      title={GODBench: A Benchmark for Multimodal Large Language Models in Video Comment Art}, 
+      author={Yiming Lei and Chenkai Zhang and Zeming Liu and Haitao Leng and Shaoguo Liu and Tingting Gao and Qingjie Liu and Yunhong Wang},
+      year={2025},
+      eprint={2505.11436},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.11436}, 
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <a href="index.html">← Back to Main Project</a> |
+          <small>Adapted from <a href="https://eliahuhorwitz.github.io/Academic-project-page-template/">Academic Project Page Template</a> and <a href="https://video-mme.github.io/">Video-MME</a>.</small>
+        </p>
+        <p>
+            This website is licensed under a 
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                Creative Commons Attribution-ShareAlike 4.0 International License
+            </a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
