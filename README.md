@@ -4,6 +4,20 @@
 
 Repository for our ACL 2025 paper - GODBench: A Benchmark for Multimodal Large Language Models in Video Comment Art. Code and datasets will soon be released.
 
+## Introduction
+
+<p align="center">
+    <img src="static/images/godbench/video_4.png" width="50%"> <br>
+    Distribution for videos in GODBench.
+    <br>
+</p>
+
+<p align="center">
+    <img src="static/images/godbench/label.png" width="100%">
+    <br>
+    Five dimensions of Comment Art and presents an example from the “Imaginary Completion” category with associated tasks.
+    <br>
+</p>
 For more details, please refer to the project page: <a href="https://stan-lei.github.io/GODBench-ACL2025/">Project Page</a>.
 
 ## Acknowledgments
